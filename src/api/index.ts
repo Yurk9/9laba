@@ -33,20 +33,4 @@ const api: API = {
 export type { RESPONSE_DATA, ENDPOINTS };
 export default api;
 
-save-json-api.js
-const fs = require('node-fs');
-const getDb = require('../db/index.js');
 
-const db = getDb();
-
-fs.mkdir('./build/static/db', () => {
-    for (let [key, value] of Object.entries(db)) {
-        fs.writeFile(
-            `./build/static/db/${key}.json`,
-            JSON.stringify(value),
-            (err) => {
-                if (err) throw err;
-            }
-        );
-    }
-});
